@@ -78,7 +78,7 @@ print("문자열 %s 는 %d 개 있습니다."%(str_find,str.find(str_find)))
 # join
 # " I am ".join('inevitable','and uneliminatable') -> Error, 리스트로 감싸야 함
 # " I am ".join(['inevitable','and uneliminatable']) -> "inevitable I am and uneliminatable"
-
+# print(" and ".join(['Apple',"Pie","Hello"])) ->  Apple and Pie and Hello
 # split
 list = "aa bb cc".split(" ") -> list = [aa,bb,cc]
 
@@ -105,10 +105,10 @@ print(not(a==100)) #True
 print("a는 90보다 크다 " if(a > 90) else "a는 90보다 작다.")
 
 a = 80
-message = "a는 90보다 크다 ";print("파이썬") if(a > 90) else "a는 90보다 작다." # a는 90보다 작다.를 출력
+message = "a는 90보다 크다 ";print("파이썬" if(a > 90) else "a는 90보다 작다.") # a는 90보다 작다.를 출력
 
 print(1 in [1,2,3]) # True
-print("Hello" if "hi" in ["hello","Hidirao"] else "FUCK") #"FUCK"
+print("Hello" if "hi" in ["hello","hidirao"] else "FUCK") #"FUCK"
 
 # 실습 문제
 num1 = int(input("첫 번째 숫자를 입력하세요 : "))
@@ -209,7 +209,8 @@ print(dict.values())
 print(dict.items())
 
 # in
-print("Suho" in dict)
+print("Suho" in dict) # True
+print("Perfect" in dict) # False -> value 로는 in 적용 안됨
 
 # 딕셔너리 초기화
 dict.clear()
@@ -242,7 +243,7 @@ print(all[1,0]) # False
 # any() : 적어도 하나라도 참인가?
 print(any(['',0])) # False
 
-# divmod(a,b) : a를 b로 나눈 목과 나머지를 Tuple 로 return
+# divmod(a,b) : a를 b로 나눈 몫과 나머지를 Tuple 로 return
 print(divmod(7,3)) #(2,1)
 
 # enumerate(반복가능한 자료형) : idx, value 를 튜플로 반환
@@ -301,7 +302,7 @@ f = open("test.txt","r")
 line = f.read()
 print(line) # 모든 줄 다 읽어서 print
 
-# readlines()
+# readlines() # 한 줄씩 모두 읽기기
 # readline() # 한 줄씩 읽기
 # seek(0,0) # pointer 가 이동할 좌표 설정. 보통 (0,0) 으로 처음으로 돌아감
 # strip() : 좌우 공백 삭제
