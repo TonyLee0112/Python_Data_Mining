@@ -45,8 +45,7 @@ class Human :
 humanList = []
 
 def humanAdd():
-    info = input("이름 나이 성별을 입력하세요. : ").split()
-    print("1: 남성, 2: 여성")
+    info = input("이름 나이 성별(남:1 여:2)을 입력하세요. : ").split()
     instance = Human(info[0],int(info[1]),int(info[2]))
     humanList.append(instance)
 
@@ -69,7 +68,7 @@ def humanDel():
             isFind = True
             break
     if isFind == True :
-        del humanList[idx] # 이게 되나?
+        del humanList[idx]
     else :
         print("입력한 이름을 가진 사람이 리스트에 없습니다.")
 
@@ -81,20 +80,27 @@ def menuView() :
     print("1 : 회원 등록")
     print("2 : 회원 삭제")
     print("3 : 전체 회원 리스트 조회")
-    print("4 : 프로그램 종료")
+    print("q : 프로그램 종료")
     print("==========================")
 
 # Main()
 while True :
     menuView()
-    num = int(input("Please choose a number : "))
-    if num == 4 :
-        break
-    elif num == 1 :
-        humanAdd()
-    elif num == 2 :
-        humanDel()
-    elif num == 3 :
-        allView()
-    else :
+    num = input("Please enter 1,2,3 or q : ")
+    if len(num) > 1 :
         print("잘못된 입력입니다.\n다시 입력하세요.")
+        continue
+
+    if num == "q" :
+        print("Program will be terminated.")
+        break
+    else :
+        num = int(num)
+        if num == 1 :
+            humanAdd()
+        elif num == 2 :
+            humanDel()
+        elif num == 3 :
+            allView()
+        else :
+            print("잘못된 입력입니다.\n다시 입력하세요.")
