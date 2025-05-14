@@ -14,3 +14,13 @@ df = pd.DataFrame([
 
 print(df)
 print(df.groupby(['Type']).sum())
+
+     Name  Frequency   Type
+0   Apple          7  Fruit
+1  Banana          3  Fruit
+2    Beef          5   Meal
+3    Beer          4   Meal
+              Name  Frequency
+Type
+Fruit  AppleBanana         10
+Meal      BeefBeer          9
